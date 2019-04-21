@@ -1,3 +1,20 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./styles.css"></require>
+  <require from="./contact-list"></require>
+
+  <nav class="navbar navbar-light bg-light fixed-top" role="navigation">
+    <a href="#" class="navbar-brand">
+      <i class="fa fa-user"></i>
+      <span>Contacts</span>
+    </a>
+  </nav>
+
+  <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
+
+  <div class="container">
+    <div class="row">
+      <contact-list class="col-md-4"></contact-list>
+      <router-view class="col-md-8"></router-view>
+    </div>
+  </div>
 </template>
